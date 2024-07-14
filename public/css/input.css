@@ -1,0 +1,98 @@
+/* 
+npx tailwindcss -i ./public/css/input.css -o ./public/css/app.css --watch 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    ul,
+    ol {
+        list-style: revert;
+        margin-left: 2rem;
+    }
+
+    select {
+        /* background-image: none !important; */
+    }
+}
+
+
+@layer components {
+    .cont {
+        @apply container px-6;
+    }
+
+    .input.readonly {
+        @apply bg-gray-100;
+    }
+
+    .input {
+        @apply block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-orange-400 dark:focus:border-orange-400 focus:ring-orange-400 focus:outline-none focus:ring focus:ring-opacity-40;
+    }
+
+    .input-select {
+        @apply shrink-0 mt-0.5 border-gray-300 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-500 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800;
+    }
+
+    .label {
+        @apply font-semibold text-gray-600 dark:text-gray-200;
+    }
+
+    .label-select {
+        @apply block p-4 text-sm font-medium bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:border-gray-200 peer-checked:border-orange-500 peer-checked:ring-1 peer-checked:ring-orange-500;
+    }
+
+    .label-select-star {
+        @apply relative flex block w-full px-3 py-2 -mt-px text-sm border border-gray-200 shadow-sm -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600;
+    }
+
+    .required {
+        @apply after:content-['*'] after:ml-0.5 after:text-red-500;
+    }
+
+    .button {
+        @apply w-full px-4 py-2 font-semibold tracking-wide text-white transition-colors duration-300 transform bg-orange-500 rounded-lg hover:bg-orange-400 focus:outline-none focus:bg-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50
+    }
+
+    #dataTableConf thead tr th {
+        @apply font-extrabold border-b-2 border-b-gray-300;
+    }
+
+    #dataTableConf tbody tr:nth-child(odd) {
+        @apply bg-gray-50 hover:bg-gray-100;
+    }
+
+    #dataTableConf tbody tr td {
+        @apply py-3 border-b-2;
+    }
+
+    #dataTableConf_length,
+    #dataTableConf_filter,
+    #dataTableConf_info,
+    #dataTableConf_paginate {
+        @apply m-2 text-sm font-semibold text-gray-600;
+    }
+
+    #dataTableConf_length label select {
+        @apply px-2 py-1 mx-1 text-sm border border-gray-300 rounded-md shadow-sm focus:border-orange-400 dark:focus:border-orange-400 focus:ring-orange-400 focus:outline-none focus:ring focus:ring-opacity-40;
+        background: none !important;
+    }
+
+    #dataTableConf_filter label input {
+        @apply px-1 py-1 ml-2 text-sm border border-gray-300 rounded-md shadow-sm focus:border-orange-400 dark:focus:border-orange-400 focus:ring-orange-400 focus:outline-none focus:ring focus:ring-opacity-40;
+    }
+
+    #dataTableConf_paginate a:not(.disabled):hover,
+    #dataTableConf_paginate .paginate_button.current {
+        @apply text-sm font-semibold bg-orange-500 border-none rounded-lg;
+        color: #fff !important;
+    }
+}
